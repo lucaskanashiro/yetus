@@ -1,0 +1,21 @@
+Description: Add systemPath for jdk.tools dependency
+ Without setting the systemPath the tools.jar file is not findable in the
+ regular path and the build fails.
+Author: Lucas Kanashiro <lucas.kanashiro@canonical.com>
+Forwarded: no
+Last-Update: 2019-09-12
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+
+Index: yetus-rel-0.5.0/audience-annotations-component/audience-annotations/pom.xml
+===================================================================
+--- yetus-rel-0.5.0.orig/audience-annotations-component/audience-annotations/pom.xml
++++ yetus-rel-0.5.0/audience-annotations-component/audience-annotations/pom.xml
+@@ -41,6 +41,7 @@
+       <scope>system</scope>
+       <!-- Mark as optional so that it isn't taken transitively -->
+       <optional>true</optional>
++      <systemPath>${java.home}/../lib/tools.jar</systemPath>
+     </dependency>
+   </dependencies>
+ </project>

@@ -1,0 +1,2 @@
+Tests: import-lib
+Depends: @, default-jdk

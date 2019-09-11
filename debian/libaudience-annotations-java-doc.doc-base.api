@@ -1,0 +1,10 @@
+Document: libaudience-annotations-java
+Title: API Javadoc for Apache Yetus - Audience Annotations
+Author: Apache Yetus - Audience Annotations developers
+Abstract: This is the API Javadoc provided for the
+ libaudience-annotations-java library.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/libaudience-annotations-java/api/index.html
+Files: /usr/share/doc/libaudience-annotations-java/api/*

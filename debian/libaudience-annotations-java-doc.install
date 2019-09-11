@@ -1,0 +1,3 @@
+audience-annotations-component/audience-annotations/target/apidocs/* usr/share/doc/libaudience-annotations-java/api
+# Apache 2.0 license requires the installation of the NOTICE file by one of the generated binaries
+NOTICE usr/share/doc/libaudience-annotations-java

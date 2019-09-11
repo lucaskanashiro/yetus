@@ -1,0 +1,16 @@
+#!/bin/bash
+
+##########################
+# Testing library import #
+##########################
+
+exec 2>&1
+set -ex
+
+LIB_NAME=audience-annotations
+
+cat <<EOF >$ADTTMP/Test.java
+import org.apache.yetus.audience.*;
+EOF
+
+javac -classpath /usr/share/java/$LIB_NAME.jar $ADTTMP/Test.java

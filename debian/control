@@ -1,0 +1,31 @@
+Source: yetus
+Section: java
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Lucas Kanashiro <lucas.kanashiro@canonical.com>
+Build-Depends: debhelper (>= 11), openjdk-8-jdk, maven-debian-helper (>= 2.1)
+Build-Depends-Indep: libmaven-javadoc-plugin-java, rename
+Standards-Version: 4.2.1
+Homepage: https://yetus.apache.org/
+
+Package: libaudience-annotations-java
+Architecture: all
+Depends: ${misc:Depends}, ${maven:Depends}
+Suggests: ${maven:OptionalDepends}, libaudience-annotations-java-doc
+Description: Apache Yetus - Audience Annotations
+ Audience Annotations allows projects to use Java Annotations to delineate
+ public and non-public parts of their APIs.  It also provides doclets to
+ generate javadocs filtered by intended audience.
+
+Package: libaudience-annotations-java-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Recommends: ${maven:DocDepends}, ${maven:DocOptionalDepends}
+Suggests: libaudience-annotations-java
+Description: Documentation for Apache Yetus - Audience Annotations
+ Audience Annotations allows projects to use Java Annotations to delineate
+ public and non-public parts of their APIs.  It also provides doclets to
+ generate javadocs filtered by intended audience.
+ .
+ This package contains the API documentation of libaudience-annotations-java.

@@ -1,0 +1,6 @@
+yetus (0.5.0-0ubuntu1) bionic; urgency=medium
+
+  * Initial release
+    -d/p/fix-pom.patch: Use systemPath to define the correct path to tools.jar
+
+ -- Lucas Kanashiro <lucas.kanashiro@canonical.com>  Wed, 11 Sep 2019 18:44:53 +0000

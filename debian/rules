@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+
+POM_FILE=audience-annotations-component/audience-annotations/pom.xml
+
+%:
+	dh $@ --buildsystem=maven \
+		--builddirectory=audience-annotations-component/audience-annotations
+
+override_dh_auto_install:
+	# Remove jdk.tools dependency from the POM file because it is not
+	# placed in the local Maven repository and mh_resolve_dependencies
+	# cannot find it, leading us to a build failure.
+	sed -i.bak '/<dependency>/,/<\/dependency>/d' $(POM_FILE)
+	dh_auto_install
+	# Restore the POM file
+	rename -f "s/\.bak//" $(POM_FILE).bak
+
+override_dh_gencontrol:
+	# For some reason maven-debian-helper is generating the Maven substvars
+	# with dots instead of colon (i.e. maven.CompileDepends instead of
+	# maven:CompileDepens) which causes a build failure. Replacing '.' to
+	# ':' to avoid failures.
+	sed -i 's/\./:/' debian/*.substvars
+	dh_gencontrol
